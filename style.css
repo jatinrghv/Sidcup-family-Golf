@@ -1,0 +1,395 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'montserrat';
+    color: #fff;
+}
+*::selection{
+    background-color: #fff;
+    color: #95C11E;
+}
+body::-webkit-scrollbar{
+    display: block;
+    width: 5px;
+    background-color: #95C11E;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #fff;
+    border-radius: 50px;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#cursor{
+    height: 25px;
+    width: 25px;
+    background-color: #95C11E;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 90;
+}
+#cursor-blur{
+    height: 400px;
+    width: 400px;
+    background-color: #96c11e2f;
+    border-radius: 50%;
+    filter: blur(30px);
+    position: fixed;
+    z-index: 9;
+}
+#nav{
+    height: 110px;
+    width: 100%;
+    /* background-color: #000; */
+    display: flex;
+    align-items: center;
+    position: fixed;
+    gap: 45px;
+    padding: 0px 122px;
+    justify-content: flex-start;
+    z-index: 99;
+}
+#nav img{
+    height: 65px;
+}
+#nav h4{
+    cursor: pointer;
+    font-size: smaller;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+}
+#main{
+    position: relative;
+    background-color: rgba(0,0,0,0.45);
+}
+#page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 9;
+}
+#page1 h1{
+    position: relative;
+    font-size: 125px;
+    font-weight: 900;
+}
+/* pseudo element */
+#page1 h1::before{
+    content: "EAT. DRINK. PLAY.";
+    position: absolute;
+    color: #000;
+    top: -6px;
+    left: -6px;
+    -webkit-text-stroke: 2px #95C11E;
+    z-index: -1;
+}
+#page1 h2{
+    font-size: 33px;
+    font-weight: 900;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#page1 p{
+    font-size: 15px;
+    font-weight: 500;
+    max-width: 1020px;
+    /* max-height: 30px; */
+}
+#page2{
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+#scroller{
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x:auto ;
+    overflow-y: hidden;
+    position: relative;     
+    z-index: 91;
+}
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll;
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#scroller h4{
+    color: transparent;
+    display: inline-block;
+    font-size: 120px;
+    font-weight: 900;
+    font-family: gilroy;
+    transition: all linear 0.5s;
+    margin-right: 10px;
+    -webkit-text-stroke: 2px #95C11E;
+}
+#scroller h4:hover{
+    color: #95C11E;
+}
+@keyframes scroll{
+    from{
+        transform:translateX(0)
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+#about-us{
+    height: 40vh;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    padding: 0px 50px;
+    align-items: center;
+    justify-content: space-around;
+}
+#about-us img{
+    height: 200px;
+    width: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+#about-us-in{
+    width: 40%;
+    text-align: center;
+}
+#about-us-in h3{
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-weight: 750;
+}
+#about-us-in p{
+    font-size: 15px;
+    line-height: 24px;
+}
+#cards-container{
+    /* background-color: red; */
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+    z-index: 91;
+}
+.card{
+    height: 90%;
+    width: 24%;
+    border-radius: 10px;
+    /* background-color: blue; */
+    background-size: cover;
+    overflow: hidden;
+    background-position: center;
+    transition: all ease 0.4s;
+}
+#card1{
+    background-image: url(https://sidcup-family-golf-rishabh07r.netlify.app/Assests/card1.avif);
+}
+#card2{
+    background-image: url(https://sidcup-family-golf-rishabh07r.netlify.app/Assests/card2.webp);
+}
+#card3{
+    background-image: url(https://sidcup-family-golf-rishabh07r.netlify.app/Assests/card3.avif);
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: #95C11E;
+    border-radius: inherit;
+    padding: 30px;
+    opacity: 0;
+    transition: all ease 0.4s;
+}
+.overlay h4{
+    color: #000;
+    font-size: 25px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+.overlay p{
+    color: #000;
+    font-size: 18px;
+}
+.card:hover .overlay{
+    opacity: 1;
+}
+.card:hover{
+    transform: rotate3d(-1,1,0,20deg);
+}
+#green-div{ 
+    position: relative;
+    z-index: 10;
+    background: linear-gradient(to left bottom ,#18A239,#93D626);
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#green-div h4{
+    width: 50%;
+    line-height: 40px;
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+#green-div img{
+    height: 100%;
+    object-fit: cover;
+    width: 15%;
+}
+#page3{
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* padding: 30px; */
+}
+#page3 >p{
+    font-size: 35px;
+    font-weight: 700;
+    width: 70%;
+    text-align: center;
+    line-height: 45px;
+}
+#page3 img{
+    position: absolute;
+    height: 60px;
+}
+#page3 #colon1{
+    top: 25%;
+    left: 10%;
+}
+#page3 #colon2{
+    right: 12%;
+    bottom: 28%;
+}
+#page4{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+}
+.elem{
+    z-index: 91;
+    height: 45%;
+    width: 26%;
+    overflow: hidden; 
+    border-radius: 20px;
+    position: relative;              
+}
+.elem h2{
+    height: 100%;
+    width: 100%;
+    background-color: #95C11E;
+    display: flex;
+    color: #000;
+    font-weight: 800;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    position: absolute;
+    transition: all ease 0.5s;
+    z-index: 91;
+}
+.elem img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all ease 0.5s;
+    scale: 1.2;
+}
+.elem:hover h2{
+    color: white;
+    background-color: transparent;
+}
+.elem:hover img{
+    scale: 1;
+}
+#page4 h1{
+    top: 5%;
+    position: absolute;
+    font-size: 92px;
+    font-weight: 900;
+    color: #000;
+    font-family: gilroy;
+    -webkit-text-stroke: 2px #fff;
+}
+#footer{
+    height: 40vh;
+    background: linear-gradient(to left bottom ,#18A239,#93D626);
+    overflow: hidden;
+}
+.containt{
+    height: 100%;
+    /* display: flex; */
+    position: relative;
+    width: 30%;
+    /* overflow: hidden; */
+}
+#dot{
+    position: absolute;
+    /* background-color: red; */
+    height: 40vh;
+}
+#f-logo{
+    position: relative;
+    top: 28%;
+    left: 15%;
+    height: 120px;
+}
+.first{
+    /* display: flex; */
+    left: 90%;
+    top: -15%;
+    position: relative;
+    text-align: center;
+}
+.second{
+    text-align: center;
+    left: 160%;
+    top: -42%;
+    position: relative;
+}
+.third {
+    text-align: center;
+    width: 140px;
+    left: 250%;
+    top: -69%;
+    position: relative;
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+.containt h3,span{
+    font-weight: 650;
+    color: black;
+}
